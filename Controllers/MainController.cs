@@ -279,11 +279,12 @@ namespace MirrorQuickstart.Controllers
                 imageUrl = builder.ToString();
             }
 
-            Contact contact = new Contact()
+            MyContact contact = new MyContact
             {
                 DisplayName = name,
                 Id = name,
-                ImageUrls = new List<String>() { imageUrl }
+                ImageUrls = new List<String>() { imageUrl },
+                AcceptCommands = new List<Command>() { new Command() { Type = "TAKE_A_NOTE" } }
             };
 
             controller.Service.Contacts.Insert(contact).Fetch();
